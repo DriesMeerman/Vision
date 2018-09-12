@@ -1,15 +1,17 @@
 default: build
 
-OBJECTS = ./o/main.o ./o/jpegFile.o ./o/fileUtil.o ./o/pngFile.o
+OBJECTS = ./o/main.o ./o/jpegFile.o ./o/fileUtil.o ./o/util.o ./o/pngFile.o
+COMPILER_FLAGS = -Wall
 # OBJECTS = ./o/main.o ./o/fileUtil.o
 
 build: phase1
-	gcc -WALL ${OBJECTS} -o ./exe
+	gcc ${COMPILER_FLAGS} ${OBJECTS} -o ./exe
 
 phase1:
 	mkdir -p o
 	gcc -c ./src/main.c -o ./o/main.o
 	gcc -c ./src/util/fileUtil.c -o ./o/fileUtil.o
+	gcc -c ./src/util/util.c -o ./o/util.o
 	gcc -c ./src/imgTypes/jpegFile.c -o ./o/jpegFile.o
 	gcc -c ./src/imgTypes/pngFile.c -o ./o/pngFile.o
 	

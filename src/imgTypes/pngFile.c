@@ -1,5 +1,6 @@
 #include "pngFile.h"
 #include "../util/fileUtil.h"
+#include "../util/util.h"
 
 /**
  * PNG files are indicated with the following values as first 8 bytes:
@@ -33,31 +34,29 @@ int getWidth(char* path){
     memcpy(widthBuffer, &buffer[4], 4);
 
     /**
-     * for little endian machine first reverse the widthbuffer
+     * for little endian machine first reverse the widthbuffer so it reads it as correct int
      * https://stackoverflow.com/questions/8173037/convert-4-bytes-char-to-int32-in-c
      **/
+    reverseArray(widthBuffer, sizeof(widthBuffer));
 
-
-
-    printf("\n First buffer byte: %X\n", buffer[0]);
-    printf("\n First widthbuffer byte: %X\n", widthBuffer[0]);
-    printf("\n________\n");
-    printf("\n%d\n", widthBuffer);
-    printf("\n________\n");
-    printf("\nGOT width byte__s %d\n", widthBuffer);
-
-    for (int i=0; i < 4; i++){
-        printf("%X ", widthBuffer[i]);
-    }
-    printf("\nreturning width\n");
-
-    // fflush();
     unsigned int width = * (int *) widthBuffer;
     return width;
 }
+
 int getHeight(char* path){
-    
-    return 1;
+    char buffer[20];
+    getIhdrBytes(path, buffer);
+    char widthBuffer[4];
+    memcpy(widthBuffer, &buffer[8], 4);
+
+    /**
+     * for little endian machine first reverse the widthbuffer so it reads it as correct int
+     * https://stackoverflow.com/questions/8173037/convert-4-bytes-char-to-int32-in-c
+     **/
+    reverseArray(widthBuffer, sizeof(widthBuffer));
+
+    unsigned int width = * (int *) widthBuffer;
+    return width;
 }
 
 /**
@@ -79,7 +78,6 @@ void getIhdrBytes(char* path, char buffer[]){
 
 pngObject createPngObject(char* path){
     if (isFilePng(path) > 0){
-        printf("EWOIJ");
         int width = getWidth(path);
         int height = getHeight(path);
         struct pngObject png = {

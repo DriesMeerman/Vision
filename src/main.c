@@ -25,8 +25,6 @@ int main(int argc, char const *argv[]) {
     if (argc > 2){
         bitCount = atoi(argv[2]);
     }
-    // const char* filePath = "./main.c";
-    // const char* filePath = "./o/main.o";
 
     const char* isJpg = "False";
     if (isFileJPG(filePath)){
@@ -43,6 +41,7 @@ int main(int argc, char const *argv[]) {
 
     struct pngObject png = createPngObject(filePath); 
     printf("\n png width: %d ", png.width);
+    printf("\n png heigth: %d ", png.height);
     char buf[50];
     readBytes(filePath, buf, 11, 11+13);
     printf("\nloop\n");
