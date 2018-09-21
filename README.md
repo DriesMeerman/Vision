@@ -6,9 +6,35 @@ This project contains a simple C project that tries to recognize image types. Th
 * be able to find the height and width of the image.
 * pass a folder as a command line argument, and run every file through the program to see if it recognizes the type.
 
+The following filetypes might later be implemented
+* GIF
+* DNG
+* BMP
+
 ### Supported filetypes
-* JPG
+* JPEG
 * PNG
+
+## Usage
+Example usage would be 
+`./exe file ./assets/bitterbal.jpg -r`
+
+Argument structure:  
+`./exe ${action} ${arg0} ${flags}`
+
+Available actions:
+| name   	| description   	                                                    |
+|--------	|---------------	                                                    |
+| file   	| check the type of a single file.                                      |
+| dir    	| pass a directory as following arg to check all files in the directory.|
+| folder 	| alias for dir. 	                                                    |
+| help   	| print help info.	                                                    |
+
+Available flags:
+| name   	| description   	                                                    |
+|--------	|---------------	                                                    |
+| r      	| resolution this flag will also print the inputted file(s) resolution. |
+
 
 ## License
 Copyright 2018 Dries Meerman

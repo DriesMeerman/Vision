@@ -3,4 +3,11 @@
 
 void reverseArray(char array[], unsigned int arrayLength);
 
+/**
+ * GLOBAL AVAILABLE VARS
+ **/
+
+extern int printSize;
+
+
 #endif

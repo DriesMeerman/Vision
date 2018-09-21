@@ -99,3 +99,10 @@ pngObject createPngObject(char* path){
     return empty;
 }
 
+int processPng(char* filePath){
+    struct pngObject png = createPngObject(filePath);
+    if (printSize == 1){
+        printf("Width: %d\n", png.width);
+        printf("Heigth: %d\n", png.height);
+    }
+}

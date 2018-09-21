@@ -12,6 +12,8 @@ void getIhdrBytes(char* path, char buffer[]);
 int getHeight(char* path);
 int getPixelCount(char* path);
 
+int processPng(char* filePath);
+
 pngObject createPngObject(char* path);
 
 #endif
