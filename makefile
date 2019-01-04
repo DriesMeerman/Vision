@@ -1,6 +1,6 @@
 default: build
 
-OBJECTS = ./o/main.o ./o/jpegFile.o ./o/fileUtil.o ./o/util.o ./o/pngFile.o ./o/fileProcessor.o
+OBJECTS = ./o/main.o ./o/jpegFile.o ./o/fileUtil.o ./o/util.o ./o/pngFile.o ./o/fileProcessor.o ./o/gifFile.o
 COMPILER_FLAGS = -Wall
 # OBJECTS = ./o/main.o ./o/fileUtil.o
 
@@ -14,6 +14,7 @@ phase1:
 	gcc -c ./src/util/util.c -o ./o/util.o
 	gcc -c ./src/imgTypes/jpegFile.c -o ./o/jpegFile.o
 	gcc -c ./src/imgTypes/pngFile.c -o ./o/pngFile.o
+	gcc -c ./src/imgTypes/gifFile.c -o ./o/gifFile.o
 	gcc -c ./src/fileProcessor/fileProcessor.c -o ./o/fileProcessor.o
 	
 	

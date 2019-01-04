@@ -2,6 +2,7 @@
 #include "fileProcessor.h"
 #include "../imgTypes/jpegFile.h"
 #include "../imgTypes/pngFile.h"
+#include "../imgTypes/gifFile.h"
 
 
 enum fileType checkFileType(char* path){
@@ -12,6 +13,9 @@ enum fileType checkFileType(char* path){
 
     if (isFilePng(path))
         type = PNG;
+    
+    if (isFileGif(path))
+        type = GIF;
 
     return type;
 };
@@ -70,6 +74,10 @@ char* fileTypeToString(enum fileType type){
             return "JPG";
         case PNG:
             return "PNG";
+        case GIF:
+            return "GIF";
+        default:
+            return "UNKNOWN";
     }
     return "type not found";
 }

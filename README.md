@@ -14,6 +14,7 @@ The following filetypes might later be implemented
 ### Supported filetypes
 * JPEG
 * PNG
+* GIF
 
 ## Usage
 Example usage would be 

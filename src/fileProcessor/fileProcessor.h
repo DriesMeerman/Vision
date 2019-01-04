@@ -5,6 +5,7 @@ typedef enum fileType {
     UNKNOWN,
     PNG,
     JPG,
+    GIF
 } fileType;
 
 // typedef struct pngObject {

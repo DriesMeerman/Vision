@@ -16,7 +16,7 @@ enum Action {
 enum Action getAction(char* actionString);
 void actionHandler(enum Action action, char const *argv[]);
 
-int printSize = 0;
+int printSize = 1;
 
 
 int main(int argc, char const *argv[]) {
